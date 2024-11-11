@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Cirrhosis Stage Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1"><h1>Liver Cirrhosis Stage Prediction</h1></span>
+    </nav>
+    <div class="container" style="width: 75%; padding: 20px; border: 1px solid rgb(128, 128, 128)">
+        <form action="/predict" method="post">
+            <div class="form-group row">
+                <label for="drug" class="col-sm-2 col-form-label">Drug Type:</label>
+                <div class="col-sm-10">
+                    <select name="drug" id="drug" class="form-control" required>
+                        <option value="D-penicillamine">D-penicillamine</option>
+                        <option value="Placebo">Placebo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="age" class="col-sm-2 col-form-label">Age:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="26" max="78" name="age" id="age" class="form-control" required>
+                    <small class="form-text text-muted">Accepted range: 26 - 78</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sex" class="col-sm-2 col-form-label">Sex:</label>
+                <div class="col-sm-10">
+                    <select name="sex" id="sex" class="form-control" required>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="ascites" class="col-sm-2 col-form-label">Ascites:</label>
+                <div class="col-sm-10">
+                    <select name="ascites" id="ascites" class="form-control" required>
+                        <option value="YES">YES</option>
+                        <option value="NO">NO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="hepatomegaly" class="col-sm-2 col-form-label">Hepatomegaly:</label>
+                <div class="col-sm-10">
+                    <select name="hepatomegaly" id="hepatomegaly" class="form-control" required>
+                        <option value="YES">YES</option>
+                        <option value="NO">NO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="spiders" class="col-sm-2 col-form-label">Spiders:</label>
+                <div class="col-sm-10">
+                    <select name="spiders" id="spiders" class="form-control" required>
+                        <option value="YES">YES</option>
+                        <option value="NO">NO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="edema" class="col-sm-2 col-form-label">Edema:</label>
+                <div class="col-sm-10">
+                    <select name="edema" id="edema" class="form-control" required>
+                        <option value="No edema and no diuretic therapy for edema">No edema and no diuretic therapy for edema</option>
+                        <option value="Edema present without diuretics, or edema resolved by diuretics">Edema present without diuretics, or edema resolved by diuretics</option>
+                        <option value="Edema despite diuretic therapy">Edema despite diuretic therapy</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="bilirubin" class="col-sm-2 col-form-label">Bilirubin:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="0.30" max="7.30" step="0.01" name="bilirubin" id="bilirubin" class="form-control" required>
+                    <small class="form-text text-muted">Accepted range: 0.30 - 7.30</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="cholesterol" class="col-sm-2 col-form-label">Cholesterol:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="160.875" max="459.875" step="0.001" name="cholesterol" id="cholesterol" class="form-control" required>
+                    <small class="form-text text-muted">Accepted range: 160.875 - 459.875</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="albumin" class="col-sm-2 col-form-label">Albumin:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="2.45" max="4.56" step="0.01" name="albumin" id="albumin" class="form-control" required>
+                    <small class="form-text text-muted">Accepted range: 2.45 - 4.56</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="copper" class="col-sm-2 col-form-label">Copper:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="4.0" max="175.0" step="0.1" name="copper" id="copper" class="form-control" required>
+                    <small class="form-text text-muted">Accepted range: 4.0 - 175.0</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="alk_phos" class="col-sm-2 col-form-label">Alkaline Phosphatase:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="289.0" max="2745.0" step="0.1" name="alk_phos" id="alk_phos" class="form-control" required>
+                    <small class="form-text text-muted">Accepted range: 289.0 - 2745.0</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sgot" class="col-sm-2 col-form-label">SGOT:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="26.35" max="202.88" step="0.01" name="sgot" id="sgot" class="form-control" required>
+                    <small class="form-text text-muted">Accepted range: 26.35 - 202.88</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="tryglycerides" class="col-sm-2 col-form-label">Tryglycerides:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="45.875" max="176.875" step="0.001" name="tryglycerides" id="tryglycerides" class="form-control" required>
+                    <small class="form-text text-muted">Accepted range: 45.875 - 176.875</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="platelets" class="col-sm-2 col-form-label">Platelets:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="62.00" max="503.75" step="0.01" name="platelets" id="platelets" class="form-control" required>
+                    <small class="form-text text-muted">Accepted range: 62.00 - 503.75</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="prothrombin" class="col-sm-2 col-form-label">Prothrombin:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="9.00" max="12.75" step="0.01" name="prothrombin" id="prothrombin" class="form-control" required>
+                    <small class="form-text text-muted">Accepted range: 9.00 - 12.75</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <input type="submit" value="Submit" class="btn btn-primary submit-button">
+                </div>
+            </div>
+        </form>
+        
+<!-- Display Prediction Text in Modal -->
+<div class="modal" id="predictionModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Prediction Result</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>{{ prediction_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Script to Open Modal if prediction_text is Present -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const predictionText = "{{ prediction_text }}";
+      if (predictionText) {
+        // Show modal if prediction_text is not empty
+        $('#predictionModal').modal('show');
+      }
+    });
+  </script>
+  
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
