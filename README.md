@@ -1,10 +1,6 @@
-# Liver-Cirrhosis-Stage-Prediction
+# Liver-Cirrhosis-Prediction
 
 <p>Liver cirrhosis is a widespread problem especially in North America due to high intake of alcohol. In this project, we will predict liver cirrhosis in a patient based on certain lifestyle and health conditions of a patient.</p>
-
-![Liver Cirrhosis Prediction](https://guires.uk/newsroom/wp-content/uploads/2019/11/Predicting-Liver-Disease.jpg)
-![Liver Cirrhosis Stages](https://img.freepik.com/free-vector/informative-illustration-stages-liver-disease-leading-cirrhosis_1308-50030.jpg?w=2000)
-![Liver Cirrhosis](https://image.cnbcfm.com/api/v1/image/105649172-1545937328446gettyimages-911340738.jpeg?v=1545937849&w=1600&h=900)
 
 ## Objective
 
@@ -214,4 +210,3 @@ Fatty Liver: 10 - 13
 Fibrosis: 10 - 13
 Cirrhosis: 12 - 15 (may increase due to impaired liver function)
 
-# Liver-Cirrhosis-Prediction
