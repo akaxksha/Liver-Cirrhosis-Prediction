@@ -1,125 +1,63 @@
-# Liver-Cirrhosis-Prediction
+Here's an improved README file:
 
-<p>Liver cirrhosis is a widespread problem especially in North America due to high intake of alcohol. In this project, we will predict liver cirrhosis in a patient based on certain lifestyle and health conditions of a patient.</p>
+# Liver Cirrhosis Prediction
+
+Liver cirrhosis is a serious health condition, particularly common in North America, and often associated with prolonged alcohol consumption. This project aims to predict the stage of liver cirrhosis in patients based on lifestyle factors and various health indicators.
 
 ## Objective
 
-<p>In liver cirrhosis, there are mainly 4 stages which are as follows:</p>
+Liver cirrhosis progression can be classified into four stages:
 
-<ol type="a">
-  <li>Stage 1 : Normal</li>
-  <li>Stage 2 : Fatty Liver</li>
-  <li>Stage 3 : Liver Fibrosis</li>
-  <li>Stage 4 : Liver Cirrhosis</li>
-</ol>
+1. **Stage 1**: Normal
+2. **Stage 2**: Fatty Liver
+3. **Stage 3**: Liver Fibrosis
+4. **Stage 4**: Liver Cirrhosis
 
-<p>The primary target is to predict the stage of the liver cirrhosis disease. The dataset consists of both numerical as well as categorical features.</p>
+The goal of this project is to develop a predictive model to determine the liver disease stage of a patient based on a variety of clinical and demographic features, which include both numerical and categorical data.
 
-## Deployed Web Application
+## Project Context
 
-Link: https://cirrhosis-stage-prediction.herokuapp.com/
+Cirrhosis represents an advanced stage of liver fibrosis caused by liver diseases such as hepatitis and chronic alcoholism. The dataset used in this project was collected during a Mayo Clinic study on primary biliary cirrhosis (PBC) between 1974 and 1984. It includes information on 424 patients, with 312 participants in a randomized trial for the drug D-penicillamine and an additional 112 non-trial patients monitored for survival. This data was gathered to examine liver disease progression and survival rates.
 
-## Context
+This project draws from:
 
-<p>Cirrhosis is a late stage of scarring (fibrosis) of the liver caused by many forms of liver diseases and conditions, such as hepatitis and chronic alcoholism. The following data contains the information collected from the Mayo Clinic trial in primary biliary cirrhosis (PBC) of the liver conducted between 1974 and 1984. A description of the clinical background for the trial and the covariates recorded here is in Chapter 0, especially Section 0.2 of Fleming and Harrington, Counting
-Processes and Survival Analysis, Wiley, 1991. A more extended discussion can be found in Dickson, et al., Hepatology 10:1-7 (1989) and in Markus, et al., N Eng J of Med 320:1709-13 (1989).</p>
+- *Counting Processes and Survival Analysis* by Fleming and Harrington (1991)
+- Studies published in *Hepatology* and *New England Journal of Medicine* on PBC
 
-<p>A total of 424 PBC patients, referred to Mayo Clinic during that ten-year interval, met eligibility criteria for the randomized placebo-controlled trial of the drug D-penicillamine. The first 312 cases in the dataset participated in the randomized trial and contain largely complete data. The additional 112 cases did not participate in the clinical trial but consented to have basic measurements recorded and to be followed for survival. Six of those cases were lost to follow-up shortly after diagnosis, so the data here are on an additional 106 cases as well as the 312 randomized participants.</p>
+## Dataset Description
 
-## Content
+The dataset consists of the following features:
 
-<table>
-  <tr>
-    <th><b>Feature</b></th>
-    <th><b>Description</b></th>
-  </tr>
-  <tr>
-    <td>ID</td>
-    <td>Unique Identifier</td>
-  </tr>
-  <tr>
-    <td>N_Days</td>
-    <td>Number of days between registration and the earlier of death, transplantation, or study analysis time in July 1986</td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td>Status of the patient: C (censored), CL (censored due to liver tx), or D (death)</td>
-  </tr>
-  <tr>
-    <td>Drug</td>
-    <td>Type of drug: D-penicillamine or Placebo</td>
-  </tr>
-  <tr>
-    <td>Age</td>
-    <td>Age (in days)</td>
-  </tr>
-  <tr>
-    <td>Sex</td>
-    <td>M (Male) or F (Female)</td>
-  </tr>
-  <tr>
-    <td>Ascites</td>
-    <td>Presence of Ascites: N (No) or Y (Yes)</td>
-  </tr>
-  <tr>
-    <td>Hepatomegaly</td>
-    <td>Presence of Hepatomegaly: N (No) or Y (Yes)</td>
-  </tr>
-  <tr>
-    <td>Spiders</td>
-    <td>Presence of Spiders: N (No) or Y (Yes)</td>
-  </tr>
-  <tr>
-    <td>Edema</td>
-    <td>Presence of Edema: N (no edema and no diuretic therapy for edema), S (edema present without diuretics, or edema resolved by diuretics), or Y (edema despite diuretic therapy)</td>
-  </tr>
-  <tr>
-    <td>Bilirubin</td>
-    <td>Serum Bilirubin (in mg/dl)</td>
-  </tr>
-  <tr>
-    <td>Cholesterol</td>
-    <td>Serum Cholesterol (in mg/dl)</td>
-  </tr>
-  <tr>
-    <td>Albumin</td>
-    <td>Albumin (in gm/dl)</td>
-  </tr>
-  <tr>
-    <td>Copper</td>
-    <td>Urine Copper (in ug/day)</td>
-  </tr>
-  <tr>
-    <td>Alk_Phos</td>
-    <td>Alkaline Phosphatase (in U/liter)</td>
-  </tr>
-  <tr>
-    <td>SGOT</td>
-    <td>SGOT (in U/ml)</td>
-  </tr>
-  <tr>
-    <td>Triglycerides</td>
-    <td>Triglicerides (in mg/dl)</td>
-  </tr>
-  <tr>
-    <td>Platelets</td>
-    <td>Platelets per cubic (ml/1000)</td>
-  </tr>
-  <tr>
-    <td>Prothrombin</td>
-    <td>Prothrombin time in seconds (s)</td>
-  </tr>
-  <tr>
-    <td>Stage</td>
-    <td>Histologic Stage of Disease (1, 2, 3 or 4)</td>
-  </tr>
-</table>
+| **Feature**      | **Description**                                                                                                                                           |
+|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ID               | Unique identifier for each patient                                                                                                                        |
+| N_Days           | Days between registration and the earlier of death, transplantation, or study end date in July 1986                                                      |
+| Status           | Patient status: C (censored), CL (censored due to liver transplant), or D (death)                                                                        |
+| Drug             | Drug type administered: D-penicillamine or Placebo                                                                                                        |
+| Age              | Age (in days)                                                                                                                                            |
+| Sex              | Gender: M (Male) or F (Female)                                                                                                                           |
+| Ascites          | Presence of Ascites: N (No) or Y (Yes)                                                                                                                   |
+| Hepatomegaly     | Presence of Hepatomegaly: N (No) or Y (Yes)                                                                                                              |
+| Spiders          | Presence of Spiders: N (No) or Y (Yes)                                                                                                                   |
+| Edema            | Presence of Edema: N (no edema and no diuretic therapy), S (edema without diuretics, or resolved by diuretics), Y (edema despite diuretic therapy)       |
+| Bilirubin        | Serum Bilirubin (in mg/dl)                                                                                                                               |
+| Cholesterol      | Serum Cholesterol (in mg/dl)                                                                                                                             |
+| Albumin          | Albumin (in gm/dl)                                                                                                                                       |
+| Copper           | Urine Copper (in µg/day)                                                                                                                                 |
+| Alk_Phos         | Alkaline Phosphatase (in U/liter)                                                                                                                        |
+| SGOT             | Serum Glutamic Oxaloacetic Transaminase (SGOT) (in U/ml)                                                                                                 |
+| Triglycerides    | Triglycerides (in mg/dl)                                                                                                                                |
+| Platelets        | Platelet count per cubic ml (1000/ml)                                                                                                                    |
+| Prothrombin      | Prothrombin time (in seconds)                                                                                                                            |
+| Stage            | Histologic stage of the disease (1-4)                                                                                                                    |
 
 ## Acknowledgements
 
-<p>The dataset can be found in appendix D of:</p>
+This dataset is available in Appendix D of:
 
-    Fleming, T.R. and Harrington, D.P. (1991) Counting Processes and Survival Analysis. Wiley Series in Probability and Mathematical Statistics: Applied Probability and Statistics, John Wiley and Sons Inc., New York.
+**Fleming, T.R., & Harrington, D.P. (1991). Counting Processes and Survival Analysis.** *Wiley Series in Probability and Mathematical Statistics*, John Wiley and Sons Inc., New York. 
+
+This project aims to build upon these foundational studies to provide a reliable tool for predicting cirrhosis progression stages.
 
 
 ## Steps to Run
@@ -132,81 +70,24 @@ Processes and Survival Analysis, Wiley, 1991. A more extended discussion can be 
   5. open url in browser
 ```
 
- Values:  
- 
- Ascites:
-Normal, Fatty Liver, Fibrosis: Typically No
-Cirrhosis: Yes (a common symptom in advanced cirrhosis)
- 
- Hepatomegaly:
-Normal: No
-Fatty Liver: Often Yes
-Fibrosis: Can be Yes
-Cirrhosis: Usually Yes
- 
- Spiders (spider angiomas on the skin):
-Normal: No
-Fatty Liver: No
-Fibrosis: No or occasionally Yes
-Cirrhosis: Yes (common in cirrhosis)
- 
- Edema:
-Normal: No edema and no diuretic therapy for edema
-Fatty Liver: Usually No edema and no diuretic therapy for edema
-Fibrosis: May present with No edema and no diuretic therapy for edema
-Cirrhosis: Often Edema present without diuretics, or edema resolved by diuretics or Edema despite diuretic therapy
+## Reference Values by Disease Stage
 
- Bilirubin (mg/dL):
-Normal: 0.3 - 1.2
-Fatty Liver: 0.3 - 1.5
-Fibrosis: 0.3 - 2.0
-Cirrhosis: 2.0 - 7.3 (higher levels indicate more severe liver damage)
+| **Feature**         | **Normal**                      | **Fatty Liver**                   | **Fibrosis**                      | **Cirrhosis**                               |
+|---------------------|---------------------------------|-----------------------------------|-----------------------------------|---------------------------------------------|
+| **Ascites**         | No                              | No                                | No                                | Yes (common in advanced cirrhosis)         |
+| **Hepatomegaly**    | No                              | Often Yes                         | Can be Yes                        | Usually Yes                                |
+| **Spiders**         | No                              | No                                | No or occasionally Yes            | Yes (common in cirrhosis)                  |
+| **Edema**           | No edema, no diuretic therapy   | Usually no edema, no diuretic     | May have no edema, no diuretic    | Edema present without diuretics, or persistent despite therapy |
+| **Bilirubin (mg/dL)** | 0.3 - 1.2                    | 0.3 - 1.5                         | 0.3 - 2.0                         | 2.0 - 7.3 (higher levels indicate severe damage) |
+| **Cholesterol (mg/dL)** | 160 - 200                  | 200 - 240                         | 160 - 250                         | 160 - 300 (may be lower in severe cases)    |
+| **Albumin (g/dL)**  | 3.5 - 5.0                       | 3.5 - 4.5                         | 3.0 - 4.5                         | 2.0 - 3.5 (reduced in cirrhosis)            |
+| **Copper (mcg/dL)** | 80 - 120                        | 80 - 150                          | 80 - 175                          | 100 - 175 (may increase in cirrhosis)       |
+| **Alkaline Phosphatase (U/L)** | 44 - 147           | 100 - 200                         | 100 - 300                         | 300 - 1500 (significantly elevated)         |
+| **SGOT (AST) (U/L)** | 10 - 40                       | 30 - 100                          | 30 - 150                          | 100 - 200 (higher values indicate damage)   |
+| **Triglycerides (mg/dL)** | 45 - 150                | 150 - 200                         | 100 - 200                         | 100 - 150 (may decrease in cirrhosis)       |
+| **Platelets (x10^9/L)** | 150 - 400                 | 150 - 350                         | 100 - 300                         | 62 - 200 (often reduced in cirrhosis)       |
+| **Prothrombin Time (seconds)** | 9 - 12.5           | 10 - 13                           | 10 - 13                           | 12 - 15 (may increase due to impaired function) | 
 
- Cholesterol (mg/dL):
-Normal: 160 - 200
-Fatty Liver: 200 - 240
-Fibrosis: 160 - 250
-Cirrhosis: 160 - 300 (cholesterol may be lower in severe cirrhosis due to impaired synthesis)
+This table organizes the typical values and symptoms by stage to aid in assessing and predicting liver cirrhosis progression.
 
- Albumin (g/dL):
-Normal: 3.5 - 5.0
-Fatty Liver: 3.5 - 4.5
-Fibrosis: 3.0 - 4.5
-Cirrhosis: 2.0 - 3.5 (reduced in cirrhosis)
-
- Copper (mcg/dL):
-Normal: 80 - 120
-Fatty Liver: 80 - 150
-Fibrosis: 80 - 175
-Cirrhosis: 100 - 175 (may increase in cirrhosis due to altered liver metabolism)
-
- Alkaline Phosphatase (U/L):
-Normal: 44 - 147
-Fatty Liver: 100 - 200
-Fibrosis: 100 - 300
-Cirrhosis: 300 - 1500 (can be elevated significantly in cirrhosis)
-
- SGOT (AST) (U/L):
-Normal: 10 - 40
-Fatty Liver: 30 - 100
-Fibrosis: 30 - 150
-Cirrhosis: 100 - 200 (higher values indicate liver damage)
-
- Triglycerides (mg/dL):
-Normal: 45 - 150
-Fatty Liver: 150 - 200
-Fibrosis: 100 - 200
-Cirrhosis: 100 - 150 (may decrease in cirrhosis)
-
- Platelets (x10^9/L):
-Normal: 150 - 400
-Fatty Liver: 150 - 350
-Fibrosis: 100 - 300
-Cirrhosis: 62 - 200 (platelet count often reduced in cirrhosis)
-
- Prothrombin Time (seconds):
-Normal: 9 - 12.5
-Fatty Liver: 10 - 13
-Fibrosis: 10 - 13
-Cirrhosis: 12 - 15 (may increase due to impaired liver function)
 
